@@ -28,7 +28,7 @@ Neo4j使用Cypher查询图形数据，Cypher是描述性的图形查询语言，
 
 neo4j数据效果截图如下
 
-![img](D:\hanlp\img\4.png)
+![img](\img\4.png)
 
 ## How to use
 
@@ -62,8 +62,8 @@ HanLP：https://github.com/hankcs/HanLP/releases
 
 ## 项目截图
 
-![img](D:\hanlp\img\1.png)
+![img](\img\1.png)
 
-![2](D:\hanlp\img\2.png)
+![2](\img\2.png)
 
-![3](D:\hanlp\img\3.png)
+![3](\img\3.png)
