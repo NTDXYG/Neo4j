@@ -1,0 +1,44 @@
+
+<scroll-view scroll-y='true' class="cu-chat" style="height:91vh" scroll-into-view="{{toView}}">
+  
+  <block wx:for="{{newsList}}" wx:key>
+    <view wx:if="{{item.ischatbot == 1}}" id='id_{{index+1}}'>
+      <view class="cu-item">
+        <view class="cu-avatar radius" style="background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577788317641&di=9974f7d620b0bc6af3dd1318949c378f&imgtype=0&src=http%3A%2F%2Fcdn.huodongxing.com%2Ffile%2F20140613%2F1177191AC30892937006F9BDD2728C0E63%2F30461928414237783.jpg');"></view>
+        <view class="main">
+          <view class='content shadow'>
+              <text>{{item.msg}}</text>
+            </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else id='id_{{index+1}}'>
+      <view class="cu-item self">
+        <view class="main">
+          <view class='content bg-green shadow'>
+              <text>{{item.msg}}</text>
+            </view>
+        </view>
+         <view class="cu-avatar radius" style="background-image:url({{avatarUrl}});"></view>
+      </view>
+    </view>
+  </block>
+
+</scroll-view>
+
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom+EmojiBottom}}px;height:9vh">
+  <input class="solid-bottom" bindfocus="InputFocus" bindinput="bindKeyInput" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" value="{{InputValue}}" cursor-spacing="10"></input>
+  <view class="action" bindtap='showEmoji'>
+    <text class="cuIcon-emojifill text-grey"></text>
+  </view>
+  <button class="cu-btn bg-green shadow" bindtap='send'>发送</button>
+  <view class="chat-emoji" hidden="{{!isShow}}">
+    <scroll-view scroll-y="true" style="height:{{EmojiBottom}}px;background: #fff;">
+      <block wx:for="{{emojis}}" wx:for-item="e" wx:key="index">
+        <view class="chat-emoji-list">
+          <image class="chat-emoji-icon" catchtap="emojiChoose" src="http://soupu.oss-cn-shanghai.aliyuncs.com/emoji/{{e.emoji}}.png" data-emoji="{{e.char}}" data-oxf="{{e.emoji}}"></image>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
